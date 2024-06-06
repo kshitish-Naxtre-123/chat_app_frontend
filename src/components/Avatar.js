@@ -1,7 +1,9 @@
 import React from "react";
 import { PiUserCircle } from "react-icons/pi";
+import { useSelector } from "react-redux";
 
-const Avatar = ({ name, imageUrl, width, height }) => {
+const Avatar = ({ name, imageUrl, width, height,userId }) => {
+  const onlineUser=useSelector((state)=>state?.user?.onlineUser)
   let avatarName = "";
 
   if (name) {
@@ -26,9 +28,10 @@ const Avatar = ({ name, imageUrl, width, height }) => {
   ];
 
   const randomNumber = Math.floor(Math.random() * 9);
+  const isOnline=onlineUser.includes(userId)
 
   return (
-    <div>
+    <div className={`text-slate-800 rounded-none font-bold relative`}>
       {imageUrl ? (
         <img
           src={imageUrl}
@@ -37,16 +40,25 @@ const Avatar = ({ name, imageUrl, width, height }) => {
           alt={name}
           className=" overflow-hidden rounded-full"
         />
-      ) : name ? (
-        <div
-          style={{ width: width + "px", height: height + "px" }}
-          className={`overflow-hidden rounded-full flex justify-center items-center text-lg ${bgColor[randomNumber]}`}
-        >
-          {avatarName}
-        </div>
-      ) : (
-        <PiUserCircle size={width} />
+      ) :(
+        name ? (
+          <div
+            style={{ width: width + "px", height: height + "px" }}
+            className={`overflow-hidden rounded-full flex justify-center items-center text-lg ${bgColor[randomNumber]}`}
+          >
+            {avatarName}
+          </div>
+        ) : (
+          <PiUserCircle size={width} />
+        )
       )}
+      {
+        isOnline && (
+          <div className=" bg-green-600 p-1.5 absolute bottom-2 -right-1 z-10 rounded-full">
+
+          </div>
+        )
+      }
     </div>
   );
 };

@@ -78,7 +78,7 @@ const CheckPassword = () => {
           <div className=" flex flex-col gap-1 rounded-sm">
             <label htmlFor="password">Password :</label>
             <input
-              type="text"
+              type="password"
               name="password"
               placeholder=" enter your password"
               className=" bg-slate-200 px-2 py-1 focus:outline-primary"

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IoChatbubbleEllipses } from "react-icons/io5";
 import { FaUserPlus } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
@@ -17,6 +17,9 @@ const Sidebar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state?.user);
+  const socketConnection = useSelector(
+    (state) => state?.user?.socketConnection
+  );
 
   const [editUserOpen, setEditUserOpen] = useState(false);
   const [openSearchUser, setOpenSearchUser] = useState(false);
@@ -27,6 +30,7 @@ const Sidebar = () => {
     navigate("/email");
     localStorage.clear();
   };
+
   return (
     <div className="w-full h-full grid grid-cols-[48px,1fr] bg-white">
       <div className="bg-slate-100 w-12 h-full rounded-tr-lg rounded-br-lg py-5 text-slate-600 flex flex-col justify-between">
@@ -78,7 +82,7 @@ const Sidebar = () => {
             Message
           </h2>
         </div>
-          <div className='bg-slate-200 p-[0.5px]'></div>
+        <div className="bg-slate-200 p-[0.5px]"></div>
         <div className=" h-[calc(100vh-65px)] overflow-x-hidden overflow-y-hidden scrollbar">
           {" "}
           {allUser.length === 0 && (

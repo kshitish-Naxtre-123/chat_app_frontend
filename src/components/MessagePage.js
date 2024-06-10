@@ -52,6 +52,9 @@ const MessagePage = () => {
   useEffect(() => {
     if (socketConnection) {
       socketConnection.emit("message-page", params.userId);
+
+      socketConnection.emit('seen',params.userId)
+      
       socketConnection.on("message-user", (data) => {
         setUserData(data);
       });
@@ -142,6 +145,9 @@ const MessagePage = () => {
       }
     }
   };
+
+
+
   return (
     <div
       style={{ backgroundImage: `url(${BackGroundImage})` }}

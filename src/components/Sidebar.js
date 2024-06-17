@@ -117,7 +117,7 @@ const Sidebar = () => {
             </span>
           </button>
         </div>
-        <div className="bg-slate-200 p-[0.5px]"></div>
+        <div className="bg-slate-200 p-[0.5px] ml-[16px] xl:ml-[0px] lg:ml-[0px]"></div>
         <div className=" h-[calc(100vh-65px)] overflow-x-hidden overflow-y-hidden scrollbar">
           {" "}
           {allUser?.length === 0 && (
@@ -133,7 +133,7 @@ const Sidebar = () => {
           {allUser?.map((conv, index) => {
             return (
               <NavLink to={"/"+conv?.userDetails?._id} key={conv?._id}
-              className=" flex items-center gap-2 py-3 px-2 border border-transparent hover:border-primary rounded-md hover:bg-slate-100 cursor-pointer">
+              className=" flex items-center gap-2 py-3 pl-[1.5rem] pr-2 border border-transparent hover:border-primary rounded-md hover:bg-slate-100 cursor-pointer">
                 <div>
                   <Avatar
                     imageUrl={conv?.userDetails?.profile_pic}

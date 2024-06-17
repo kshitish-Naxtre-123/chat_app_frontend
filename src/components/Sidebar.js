@@ -67,7 +67,7 @@ const Sidebar = () => {
 
   return (
     <div className="w-full h-full grid grid-cols-[48px,1fr] bg-white">
-      <div className="bg-slate-100 w-12 h-full rounded-tr-lg rounded-br-lg py-5 text-slate-600 flex flex-col justify-between">
+      <div className="bg-red-100 w-16 xl:w-12 h-full rounded-tr-lg rounded-br-lg py-5 text-slate-600 flex flex-col justify-between">
         <div>
           <NavLink
             className={`w-12 h-12 flex justify-center items-center cursor-pointer hover:bg-slate-200 rounded `}
@@ -97,24 +97,25 @@ const Sidebar = () => {
               userId={user?._id}
             />
           </button>
+        
+        </div>
+      </div>
+
+      <div className=" w-full">
+        <div className=" h-16 flex items-center justify-between">
+          <h2 className=" text-xl font-bold p-4 text-slate-800 mt-2 ml-1 xl:ml-0 lg:ml-0 ">
+            {" "}
+            Message
+          </h2>
           <button
             title="logout"
             className="w-12 h-12 flex justify-center items-center cursor-pointer hover:bg-slate-200 rounded"
             onClick={handleLogOut}
           >
             <span className="-ml-2">
-              <BiLogOut size={20} />
+              <BiLogOut size={24} />
             </span>
           </button>
-        </div>
-      </div>
-
-      <div className=" w-full">
-        <div className=" h-16 flex items-center">
-          <h2 className=" text-xl font-bold p-4 text-slate-800 mt-2 ">
-            {" "}
-            Message
-          </h2>
         </div>
         <div className="bg-slate-200 p-[0.5px]"></div>
         <div className=" h-[calc(100vh-65px)] overflow-x-hidden overflow-y-hidden scrollbar">

@@ -49,7 +49,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const URL = `http://localhost:5000/api/chat/register`;
+    const URL = `${process.env.REACT_APP_BACKEND_URL}/api/chat/register`;
     console.log("bakcendUrl", URL);
     try {
       const response = await axios.post(URL, formData);

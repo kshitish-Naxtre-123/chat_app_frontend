@@ -146,7 +146,7 @@ const Register = () => {
             />
           </div>
 
-          <button className=" bg-primary text-lg px-4 py-1 hover:bg-secondary mt-2 font-bold text-white leading-relaxed tracking-wide">
+          <button className=" bg-primary text-lg px-4 py-1 hover:bg-secondary mt-2 font-bold text-white leading-relaxed tracking-wide" type="submit">
             Register
           </button>
         </form>

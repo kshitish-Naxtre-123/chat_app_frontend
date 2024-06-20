@@ -54,7 +54,7 @@ const CheckPassword = () => {
         setData({
           password: "",
         });
-        navigate("/");
+        navigate("/home");
       }
     } catch (error) {
       toast.error(error?.response?.data?.message);

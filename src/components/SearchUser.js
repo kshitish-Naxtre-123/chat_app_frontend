@@ -70,8 +70,8 @@ const SearchUser = ({ onClose }) => {
         className=" absolute top-0 right-0 text-2xl p-2 lg:text-4xl hover:text-red-500"
         onClick={onClose}
       >
-        <button>
-          <IoClose />
+        <button className=" border bg-red-600 rounded-md border-transparent">
+          <IoClose className=" font-extrabold" color="white" />
         </button>
       </div>
     </div>

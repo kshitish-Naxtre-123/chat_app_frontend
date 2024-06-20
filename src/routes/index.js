@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import AuthLayOuts from "../layout";
 import Register from "../pages/Register";
@@ -12,6 +12,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
+      {
+        index:true,
+        element :<Navigate to="/email" replace/>
+      },
       {
         path: "register",
         element: (
@@ -37,7 +41,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "",
+        path: "/home",
         element: <HomePage />,
         children: [
           {

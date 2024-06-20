@@ -62,18 +62,18 @@ const EditUserDetails = ({ onClose, user }) => {
       const token = localStorage.getItem("token");
 
       const URL = `${process.env.REACT_APP_BACKEND_URL}/api/chat/update-user/${token}`;
-      // let axiosConfig = {
-      //   headers: {
-      //       'Content-Type': 'application/json;charset=UTF-8',
-      //       "Access-Control-Allow-Origin": "*",
-      //   }
-      // };   
+      let axiosConfig = {
+        headers: {
+            'Content-Type': 'application/json;charset=UTF-8',
+            "Access-Control-Allow-Origin": "*",
+        }
+      };   
       const response = await axios({
         method: "put",
         url: URL,
         data: data,
         withCredentials: true,
-        
+        axiosConfig
       });
       console.log("response", response);
       toast.success(response?.data?.message);

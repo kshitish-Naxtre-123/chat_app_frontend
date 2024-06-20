@@ -53,7 +53,7 @@ const CheckEmailPage = () => {
               name="email"
               placeholder="enter your email"
               className="bg-slate-200 px-2 py-1 focus:outline-primary rounded-sm "
-              value={data.email}
+              value={data?.email}
               onChange={handleOnChange}
               required
             />

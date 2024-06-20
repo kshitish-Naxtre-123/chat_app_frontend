@@ -59,17 +59,26 @@ const EditUserDetails = ({ onClose, user }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // const token = localStorage.getItem("token");
+
       const URL = `${process.env.REACT_APP_BACKEND_URL}/api/chat/update-user`;
+      // let axiosConfig = {
+      //   headers: {
+      //       'Content-Type': 'application/json;charset=UTF-8',
+      //       "Access-Control-Allow-Origin": "*",
+      //   }
+      // };   
       const response = await axios({
         method: "put",
         url: URL,
         data: data,
         withCredentials: true,
+        
       });
       console.log("response", response);
       toast.success(response?.data?.message);
       if (response?.data?.success) {
-        dispatch(setUser(response.data.data));
+        dispatch(setUser(response?.data?.data));
         onClose();
       }
     } catch (error) {
@@ -127,7 +136,7 @@ const EditUserDetails = ({ onClose, user }) => {
               Cancel
             </button>
             <button
-              onClick={handleSubmit}
+            type="submit"
               className="border-success bg-success text-white border px-4 py-1 rounded-md font-semibold"
             >
               Update

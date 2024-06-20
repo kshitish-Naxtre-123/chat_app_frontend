@@ -17,6 +17,7 @@ const Sidebar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state?.user);
+  console.log("user",user);
   const socketConnection = useSelector(
     (state) => state?.user?.socketConnection
   );
@@ -30,7 +31,6 @@ const Sidebar = () => {
       socketConnection.emit("sidebar", user._id);
 
       socketConnection.on("conversation", (data) => {
-        console.log("conversation data<><><><><><<><><><>", data);
 
         const conversationUserData = data?.map((conversationUser, index) => {
           if (
@@ -63,7 +63,25 @@ const Sidebar = () => {
     localStorage.clear();
   };
 
-  console.log("all user data", allUser);
+  function removeCircularReferences(obj, seen = new WeakSet()) {
+    if (obj && typeof obj === 'object') {
+      if (seen.has(obj)) {
+        return '[Circular]';
+      }
+      seen.add(obj);
+      const newObj = Array.isArray(obj) ? [] : {};
+      for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          newObj[key] = removeCircularReferences(obj[key], seen);
+        }
+      }
+      seen.delete(obj);
+      return newObj;
+    }
+    return obj;
+  }
+  
+
 
   return (
     <div className="w-full h-full grid grid-cols-[48px,1fr] bg-white">
@@ -181,7 +199,7 @@ const Sidebar = () => {
 
       {/** edi user details */}
       {editUserOpen && (
-        <EditUserDetails onClose={() => setEditUserOpen(false)} user={user} />
+        <EditUserDetails onClose={() => setEditUserOpen(false)} user={removeCircularReferences(user)} />
       )}
 
       {/** serach user */}

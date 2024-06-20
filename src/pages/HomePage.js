@@ -28,15 +28,13 @@ const HomePage = () => {
             'Content-Type': 'application/json;charset=UTF-8',
             "Access-Control-Allow-Origin": "*",
         }
-      };      console.log("URL >>>>>", `${process.env.REACT_APP_BACKEND_URL}/api/chat/user-details`);
+      };   
       const response = await axios({
         url: URL,
         withCredentials: true,
         axiosConfig
       });
-      console.log("user details..",response);
       dispatch(setUser(response.data.data));
-      console.log("user details..",response);
 
       // if (response.data.data.logout) {
       //   dispatch(logout());
@@ -58,7 +56,6 @@ const HomePage = () => {
       },
     });
     socketConnection.on("onlineUser", (data) => {
-      console.log("data", data);
       dispatch(setOnlineUser(data));
     });
     dispatch(setSocketConnection(socketConnection));

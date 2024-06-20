@@ -58,7 +58,7 @@ const CheckEmailPage = () => {
               required
             />
           </div>
-          <button className=" bg-primary text-lg px-4  py-1 hover:bg-secondary rounded-md mt-2 font-bold text-white leading-relaxed tracking-wide">
+          <button className=" bg-primary text-lg px-4  py-1 hover:bg-secondary rounded-md mt-2 font-bold text-white leading-relaxed tracking-wide" type="submit">
             Let's go
           </button>
         </form>

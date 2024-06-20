@@ -59,9 +59,9 @@ const EditUserDetails = ({ onClose, user }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // const token = localStorage.getItem("token");
+      const token = localStorage.getItem("token");
 
-      const URL = `${process.env.REACT_APP_BACKEND_URL}/api/chat/update-user`;
+      const URL = `${process.env.REACT_APP_BACKEND_URL}/api/chat/update-user/${token}`;
       // let axiosConfig = {
       //   headers: {
       //       'Content-Type': 'application/json;charset=UTF-8',

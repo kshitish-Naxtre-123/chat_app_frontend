@@ -58,7 +58,7 @@ const SearchUser = ({ onClose }) => {
             searchUser.length!==0 && !loading &&(
                 searchUser.map((user,index)=>{
                     return(
-                        <UserSearchCard key={user._id} user={user} onClose={onClose}/>
+                        <UserSearchCard key={user?._id} user={user} onClose={onClose}/>
                     )
                 })
             )
